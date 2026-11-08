@@ -21,6 +21,31 @@
       "type": "string",
       "pattern": "^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$"
     },
+    "titleFont": { "enum": ["default", "condensed", "medium", "serif", "monospace", "casual", "cursive", "smallCaps", "audiowide", "oxanium", "orbitron", "michroma", "tektur", "rajdhani", "chakraPetch", "shareTechMono"] },
+    "titleAlign": { "enum": ["start", "center", "end"] },
+    "sectionStyle": {
+      "description": "Overrides any widget setting for one section only: title style, spacing, and the widget-level settings below. Every field is optional; a missing or null field follows the widget.",
+      "type": "object",
+      "properties": {
+        "colorArgb": { "anyOf": [{ "$ref": "#/$defs/color" }, { "type": "null" }], "default": null, "description": "Title colour, in day and dark mode alike." },
+        "sizeSp": { "type": ["integer", "null"], "minimum": 8, "maximum": 24, "default": null },
+        "bold": { "type": ["boolean", "null"], "default": null },
+        "font": { "anyOf": [{ "$ref": "#/$defs/titleFont" }, { "type": "null" }], "default": null },
+        "align": { "anyOf": [{ "$ref": "#/$defs/titleAlign" }, { "type": "null" }], "default": null },
+        "gapXDp": { "type": ["integer", "null"], "minimum": 0, "maximum": 32, "default": null, "description": "Space between this section's icons across. Replaces gapDp there, so it can change the column count." },
+        "gapYDp": { "type": ["integer", "null"], "minimum": 0, "maximum": 32, "default": null, "description": "Space between this section's rows. Gaps around titles stay gapDp." },
+        "iconSizeDp": { "type": ["integer", "null"], "minimum": 16, "maximum": 96, "default": null, "description": "Largest icon size in this section. The section keeps it when a grid shrinks." },
+        "layout": { "$ref": "#/$defs/layout/properties/layout", "description": "This section's layout, same shape as the widget's." },
+        "labels": { "$ref": "#/$defs/layout/properties/labels", "description": "This section's labels, same shape as the widget's." },
+        "background": { "$ref": "#/$defs/layout/properties/background", "description": "This section's own background, same shape as the widget's." },
+        "iconStyle": { "$ref": "#/$defs/layout/properties/iconStyle", "description": "This section's icon style, same shape as the widget's." },
+        "iconPack": { "type": ["string", "null"], "default": null, "description": "Icon pack package for this section. \"\" = the apps' own icons in this section." },
+        "shape": { "$ref": "#/$defs/layout/properties/shape", "description": "This section's icon shape." },
+        "order": { "$ref": "#/$defs/layout/properties/order", "description": "How this section's apps are sorted." },
+        "night": { "$ref": "#/$defs/layout/properties/night", "description": "This section's dark-mode colours, same shape as the widget's." },
+        "badge": { "$ref": "#/$defs/layout/properties/badge", "description": "This section's badge, same shape as the widget's." }
+      }
+    },
     "layout": {
       "type": "object",
       "required": ["items"],
@@ -53,10 +78,22 @@
           "properties": {
             "show": { "type": "boolean", "default": false },
             "colorArgb": { "$ref": "#/$defs/color", "default": "#FFFFFF" },
-            "sizeSp": { "type": "integer", "minimum": 8, "maximum": 16, "default": 11, "description": "Section titles use this size too." },
+            "sizeSp": { "type": "integer", "minimum": 8, "maximum": 16, "default": 11, "description": "Section titles use this size too, unless titles.sizeSp is set." },
             "sectionArgb": { "anyOf": [{ "$ref": "#/$defs/color" }, { "type": "null" }], "default": null, "description": "Section titles and dividers. Null uses colorArgb." }
           }
         },
+        "titles": {
+          "type": "object",
+          "default": { "sizeSp": null, "bold": true, "font": "default", "align": "center" },
+          "description": "Section title style for the whole widget. Colour comes from labels.sectionArgb (night.sectionArgb in dark mode). A section's own style overrides it.",
+          "properties": {
+            "sizeSp": { "type": ["integer", "null"], "minimum": 8, "maximum": 24, "default": null, "description": "Null uses labels.sizeSp." },
+            "bold": { "type": "boolean", "default": true },
+            "font": { "$ref": "#/$defs/titleFont", "default": "default" },
+            "align": { "$ref": "#/$defs/titleAlign", "default": "center" }
+          }
+        },
+        "sectionGapDp": { "type": "integer", "minimum": 0, "maximum": 32, "default": 8, "description": "Space between side-by-side sections and between grid rows." },
         "background": {
           "type": "object",
           "default": { "kind": "transparent", "colorArgb": "#000000", "alphaPct": 60, "cornerDp": 16 },
@@ -123,7 +160,10 @@
           "description": "Starts a titled group. A blank label draws a thin divider.",
           "properties": {
             "type": { "const": "section" },
-            "label": { "type": "string", "default": "" }
+            "label": { "type": "string", "default": "", "description": "Emoji are welcome." },
+            "sameRow": { "type": "boolean", "default": false, "description": "Sit to the right of the section before it instead of below. Rows of side-by-side sections make a grid. Up to 12 sections per widget." },
+            "width": { "type": "integer", "minimum": 1, "maximum": 6, "default": 1, "description": "This section's share of its row (only matters in a row with other sections)." },
+            "style": { "$ref": "#/$defs/sectionStyle" }
           }
         },
         {

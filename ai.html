@@ -56,7 +56,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p><code>items</code> lists what the widget shows, in display order. Each item has a <code>type</code>:</p>
   <ul>
     <li><code>{"type": "app", "packageName": "com.netflix.mediaclient", "label": "Netflix"}</code>: an app. <code>packageName</code> and <code>label</code> are required. Iconic finds the launcher activity itself, so <code>activityName</code> can be left out.</li>
-    <li><code>{"type": "section", "label": "Watch"}</code>: starts a titled group of icons. A blank label (<code>"label": ""</code>) draws a thin divider instead.</li>
+    <li><code>{"type": "section", "label": "🎬 Watch"}</code>: starts a titled group of icons. Emoji work in titles. A blank label (<code>"label": ""</code>) draws a thin divider instead. Optional <code>sameRow</code> and <code>width</code> place it in a <a href="#section-grid">grid</a>, and an optional <a href="#section-style"><code>style</code></a> changes this section only.</li>
     <li><code>{"type": "link", "label": "News", "url": "https://example.com"}</code>: a web address, shown as a letter tile. <code>label</code> and <code>url</code> are required.</li>
   </ul>
   <p>Shortcuts (a contact, a chat) can't be written by hand. Add those in the app.</p>
@@ -81,16 +81,40 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
       <tr><td><code>iconSizeDp</code></td><td>number</td><td>40</td><td>16 to 96. The largest icon size; icons shrink to fit.</td></tr>
       <tr><td><code>gapDp</code></td><td>number</td><td>4</td><td>0 to 32. Space between icons and lines.</td></tr>
       <tr><td><code>shape</code></td><td>text</td><td><code>"original"</code></td><td><code>"original"</code>, <code>"circle"</code>, <code>"squircle"</code>, <code>"rounded"</code>, <code>"teardrop"</code>.</td></tr>
-      <tr><td><code>labels</code></td><td>object</td><td><code>{"show": false, "colorArgb": "#FFFFFF", "sizeSp": 11}</code></td><td>Names under the icons. <code>show</code> is true or false; <code>sizeSp</code> is 8 to 16, and section titles use it too. Optional <code>sectionArgb</code> colours the section titles and dividers; without it they use <code>colorArgb</code>.</td></tr>
-      <tr><td><code>background</code></td><td>object</td><td><code>{"kind": "transparent", "colorArgb": "#000000", "alphaPct": 60, "cornerDp": 16}</code></td><td><code>kind</code> is <code>"transparent"</code>, <code>"solid"</code> or <code>"card"</code>. <code>alphaPct</code> is the opacity, 0 to 100. <code>cornerDp</code> rounds the corners, 0 to 48.</td></tr>
-      <tr><td><code>iconStyle</code></td><td>object</td><td><code>{"type": "original"}</code></td><td><code>{"type": "original"}</code>: the apps' own icons. <code>{"type": "themed", "tintArgb": "#FFFFFF"}</code>: one colour, using the apps' monochrome icons where they have them.</td></tr>
-      <tr><td><code>iconPack</code></td><td>text or null</td><td><code>null</code></td><td>Package name of an installed icon pack (listed in Copy my setup), or null for the apps' own icons.</td></tr>
-      <tr><td><code>order</code></td><td>text</td><td><code>"manual"</code></td><td><code>"manual"</code>: the order you wrote. <code>"alphabetical"</code>: A to Z. <code>"mostUsed"</code>: most opened in the last two weeks (needs Usage access). Each section is sorted on its own.</td></tr>
-      <tr><td><code>overflow</code></td><td>text</td><td><code>"shrink"</code></td><td><code>"shrink"</code>: icons get smaller until everything fits. <code>"scroll"</code>: icons keep their size and the widget scrolls.</td></tr>
-      <tr><td><code>badge</code></td><td>object</td><td><code>{"style": "number", "colorArgb": "#E53935", "sizePct": 100, "corner": "topEnd"}</code></td><td><code>style</code> is <code>"number"</code>, <code>"dot"</code> or <code>"off"</code>. <code>sizePct</code> scales the badge, 60 to 150. <code>corner</code> is <code>"topStart"</code>, <code>"topEnd"</code>, <code>"bottomStart"</code> or <code>"bottomEnd"</code>.</td></tr>
-      <tr><td><code>night</code></td><td>object or null</td><td><code>null</code></td><td>Colours to use in dark mode instead: <code>{"backgroundArgb": "#000000", "labelArgb": "#FFFFFF", "tintArgb": "#FFFFFF"}</code>, plus an optional <code>sectionArgb</code> for section titles. Null means the same look day and night.</td></tr>
+      <tr><td><code>labels</code></td><td>object</td><td><code>{"show": false, "colorArgb": "#FFFFFF", "sizeSp": 11}</code></td><td>Names under the icons. <code>show</code> is true or false; <code>sizeSp</code> is 8 to 16. Section titles use this size too, unless <code>titles.sizeSp</code> is set. Optional <code>sectionArgb</code> colours the section titles and dividers; without it they use <code>colorArgb</code>.</td></tr>
+      <tr><td><code>titles</code></td><td>object</td><td><code>{"sizeSp": null, "bold": true, "font": "default", "align": "center"}</code></td><td>How section titles look, for the whole widget. <code>sizeSp</code> is 8 to 24, or null to use the label size. <code>bold</code> is true or false. <code>font</code> is <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code> or <code>"smallCaps"</code> (the phone's own fonts), or one bundled with Iconic: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code> or <code>"shareTechMono"</code>. <code>align</code> is <code>"start"</code>, <code>"center"</code> or <code>"end"</code>. The colour comes from <code>labels.sectionArgb</code> (and <code>night.sectionArgb</code> in dark mode). A section can override any of this with its own <a href="#section-style"><code>style</code></a>.</td></tr>
+      <tr><td><code>sectionGapDp</code></td><td>number</td><td>8</td><td>0 to 32. Space between side-by-side sections and between grid rows. See <a href="#section-grid">Section grid</a>.</td></tr>
     </tbody>
   </table>
+  <h3 id="section-grid">Section grid</h3>
+  <p>By default sections stack, one under another. Two fields on a section item build a grid instead. A widget has at most 12 sections.</p>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>Default</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>sameRow</code></td><td>true or false</td><td>false</td><td>True puts the section to the right of the one before it, instead of below. Rows of side-by-side sections make a grid.</td></tr>
+      <tr><td><code>width</code></td><td>number</td><td>1</td><td>1 to 6. The section's share of its row. Two sections with widths 1 and 2 get a third and two thirds.</td></tr>
+    </tbody>
+  </table>
+  <p>The widget is laid out as a grid when any section has <code>sameRow</code>, or has its own <code>iconSizeDp</code> or <code>layout</code> in its <code>style</code>. Otherwise it keeps the classic stacked flow. Sections in a grid can't scroll: <code>overflow</code> only applies to the whole widget. Several rows of side-by-side sections are a Pro feature (free for now); stacked sections, or one row of side-by-side sections, are free.</p>
+
+  <h3 id="section-style">Section style</h3>
+  <p>A section item can carry a <code>style</code> object that overrides the widget's settings for that section only. Every field is optional, and a field left out (or null) follows the widget.</p>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>Allowed values and meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>colorArgb</code></td><td>colour</td><td>This section's title colour, in day and dark mode alike.</td></tr>
+      <tr><td><code>sizeSp</code></td><td>number</td><td>Title size, 8 to 24.</td></tr>
+      <tr><td><code>bold</code></td><td>true or false</td><td>Bold title or not.</td></tr>
+      <tr><td><code>font</code></td><td>text</td><td>Same values as <code>titles.font</code>: <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code>, <code>"smallCaps"</code>, or a bundled one: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code>, <code>"shareTechMono"</code>.</td></tr>
+      <tr><td><code>align</code></td><td>text</td><td><code>"start"</code>, <code>"center"</code> or <code>"end"</code>.</td></tr>
+      <tr><td><code>gapXDp</code></td><td>number</td><td>0 to 32. Space between this section's icons across. It replaces <code>gapDp</code> there, so it can change how many columns fit.</td></tr>
+      <tr><td><code>gapYDp</code></td><td>number</td><td>0 to 32. Space between this section's rows. Gaps around titles stay at <code>gapDp</code>.</td></tr>
+      <tr><td><code>iconSizeDp</code></td><td>number</td><td>16 to 96. Largest icon size in this section. It keeps it when a grid shrinks.</td></tr>
+      <tr><td><code>layout</code>, <code>labels</code>, <code>background</code>, <code>iconStyle</code>, <code>shape</code>, <code>order</code>, <code>night</code>, <code>badge</code></td><td>as the widget's</td><td>Same shape and values as the widget-level setting of that name, applying to this section only.</td></tr>
+      <tr><td><code>iconPack</code></td><td>text</td><td>Package name of an icon pack for this section. <code>""</code> means the apps' own icons in this section.</td></tr>
+    </tbody>
+  </table>
+<pre><code>{"type": "section", "label": "🎬 Watch", "style": {"colorArgb": "#FF5252", "sizeSp": 12, "bold": true, "font": "serif", "align": "start", "gapXDp": 2, "gapYDp": 6, "iconSizeDp": 48, "shape": "circle"}}</code></pre>
   <p><strong>Colours</strong> are written as <code>"#RRGGBB"</code> or <code>"#AARRGGBB"</code> (alpha first), like <code>"#E53935"</code>.</p>
   <p>Numbers outside their range are brought into it.</p>
   <p><strong>What the importer forgives:</strong> the JSON can sit inside a code fence or among other text, as AI answers usually do. Trailing commas and comments are allowed. An item or layout that can't be read is skipped and the rest still imports.</p>
@@ -99,9 +123,10 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p>For the auto layout, work out how many icons fit before choosing the icon size and the number of apps. All sizes are in dp (labels and titles are in sp, counted the same here).</p>
   <ul>
     <li><strong>Columns:</strong> <code>floor((width + gap) / (icon + gap))</code></li>
-    <li><strong>Height:</strong> icon rows × (icon + label) + titles + one gap between every two lines (rows and titles).</li>
+    <li><strong>Height:</strong> icon rows × (icon + label) + titles + one gap between every two lines (rows and titles). A section's own <code>gapYDp</code> replaces the gap between its rows, and its <code>gapXDp</code> the gap between its icons (so its column count too). Gaps around titles stay <code>gapDp</code>.</li>
     <li><strong>Label:</strong> <code>sizeSp × 1.3</code> rounded down, <code>+ 2</code>, when labels show, otherwise 0.</li>
-    <li><strong>Section title:</strong> <code>sizeSp × 1.3</code> rounded down, <code>+ 6</code> (11 sp makes a 20 dp title). A divider is 9.</li>
+    <li><strong>Section title:</strong> title <code>sizeSp × 1.3</code> rounded down, <code>+ 6</code> (11 sp makes a 20 dp title). A divider is 9.</li>
+    <li><strong>Grid:</strong> each section gets a rectangle. Its width is (widget width − <code>sectionGapDp</code> between sections) × its <code>width</code> share. Its columns = <code>floor((width + gap) / (icon + gap))</code>, then balanced (6 apps in 5 columns show as 3 + 3). A row is as tall as its tallest section. The rows plus <code>sectionGapDp</code> between them must fit the height, otherwise every section's icons shrink together. Sections with their own <code>iconSizeDp</code> keep it.</li>
   </ul>
   <p>When it doesn't fit, icons shrink 1 dp at a time, down to 16 dp. For big icons, use fewer apps, titles or labels.</p>
   <p><strong>Tip:</strong> keep each section's app count a multiple of the column count, so every row is full.</p>
