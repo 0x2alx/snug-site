@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://0x2alx.github.io/iconic-site/layout.schema.json",
   "title": "Iconic layout",
-  "description": "A widget layout for the Iconic Android app, or a {\"configs\": [...]} list of them. Documented at https://0x2alx.github.io/iconic-site/ai.html",
+  "description": "A widget layout for the Iconic Android app, or a {\"configs\": [...]} list of them, optionally with the app theme. Documented at https://0x2alx.github.io/iconic-site/ai.html",
   "oneOf": [
     { "$ref": "#/$defs/layout" },
     {
@@ -10,12 +10,44 @@
       "required": ["configs"],
       "properties": {
         "configs": { "type": "array", "items": { "$ref": "#/$defs/layout" } },
-        "icons": { "$ref": "#/$defs/icons" }
+        "icons": { "$ref": "#/$defs/icons" },
+        "theme": { "$ref": "#/$defs/theme" }
       }
     },
-    { "type": "array", "items": { "$ref": "#/$defs/layout" } }
+    { "type": "array", "items": { "$ref": "#/$defs/layout" } },
+    {
+      "description": "The app theme alone.",
+      "type": "object",
+      "required": ["theme"],
+      "properties": { "theme": { "$ref": "#/$defs/theme" } },
+      "not": { "anyOf": [{ "required": ["items"] }, { "required": ["configs"] }] }
+    }
   ],
   "$defs": {
+    "theme": {
+      "description": "The look of the Iconic app itself (its screens, not the widgets). See ai.html, The app theme.",
+      "type": "object",
+      "properties": {
+        "selectedId": { "type": "string", "description": "graphite, daylight, neon, signature, high-contrast, or the id of a custom theme." },
+        "matchPhone": { "type": "boolean" },
+        "custom": { "type": "array", "items": { "$ref": "#/$defs/appTheme" } }
+      }
+    },
+    "appTheme": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" }, "name": { "type": "string" }, "dark": { "type": "boolean" },
+        "background": { "$ref": "#/$defs/color" }, "surface": { "$ref": "#/$defs/color" }, "surfaceVariant": { "$ref": "#/$defs/color" },
+        "border": { "$ref": "#/$defs/color" }, "accent": { "$ref": "#/$defs/color" }, "onAccent": { "$ref": "#/$defs/color" },
+        "text": { "$ref": "#/$defs/color" }, "mutedText": { "$ref": "#/$defs/color" }, "danger": { "$ref": "#/$defs/color" },
+        "headingFont": { "$ref": "#/$defs/appFont" }, "bodyFont": { "$ref": "#/$defs/appFont" },
+        "textScalePct": { "type": "integer", "minimum": 85, "maximum": 130 },
+        "cornerDp": { "type": "integer", "minimum": 0, "maximum": 28 },
+        "borderDp": { "type": "integer", "minimum": 0, "maximum": 3 }
+      }
+    },
+    "appFont": { "enum": ["default", "condensed", "serif", "monospace", "audiowide", "oxanium", "orbitron", "michroma", "tektur", "rajdhani", "chakraPetch", "shareTechMono"] },
     "color": {
       "description": "\"#RRGGBB\" or \"#AARRGGBB\" (alpha first).",
       "type": "string",
@@ -54,6 +86,7 @@
         "name": { "type": "string", "default": "" },
         "items": { "type": "array", "items": { "$ref": "#/$defs/item" }, "description": "In display order." },
         "icons": { "$ref": "#/$defs/icons" },
+        "theme": { "$ref": "#/$defs/theme" },
         "layout": {
           "default": { "type": "auto" },
           "oneOf": [
