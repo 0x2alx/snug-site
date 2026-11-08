@@ -13,7 +13,7 @@
   <header class="top">
     <img src="assets/iconic-logo.png" alt="">
     <a href="index.html">Iconic</a>
-    <nav><a href="faq.html">FAQ</a><a href="ai.html" aria-current="page">AI</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+    <nav><a href="faq.html">FAQ</a><a href="ai.html" aria-current="page">AI</a><a href="themes.html">Themes</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </header>
 
   <h1>Build layouts with AI <span class="free">PRO · FREE NOW</span></h1>
@@ -120,12 +120,9 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p><strong>What the importer forgives:</strong> the JSON can sit inside a code fence or among other text, as AI answers usually do. Trailing commas and comments are allowed. An item or layout that can't be read is skipped and the rest still imports.</p>
 
   <h3>The app theme</h3>
-  <p>The look of the Iconic app itself (its screens, never the widgets) can come from an AI too. Put <code>"theme"</code> next to a layout, <code>{"items": [...], "theme": {...}}</code> or <code>{"configs": [...], "theme": {...}}</code>, or answer <code>{"theme": {...}}</code> alone.</p>
-<pre><code>{"theme": {"selectedId": "my-theme", "custom": [{"id": "my-theme", "name": "Ocean", "dark": true,
-  "background": "#0B1A2A", "surface": "#13263B", "surfaceVariant": "#1C334D", "border": "#27425F",
-  "accent": "#3FC1C9", "onAccent": "#062026", "text": "#E6F1F8", "mutedText": "#9DB4C7", "danger": "#FF6B6B",
-  "headingFont": "audiowide", "bodyFont": "audiowide", "textScalePct": 100, "cornerDp": 14, "borderDp": 1}]}}</code></pre>
-  <p>Built-in ids: <code>graphite</code> (the default), <code>daylight</code>, <code>neon</code>, <code>clumsy-clanker</code>, <code>high-contrast</code>. One font for all the app's text: give <code>headingFont</code> and <code>bodyFont</code> the same value. Fonts: <code>default</code>, <code>condensed</code>, <code>serif</code>, <code>monospace</code>, <code>audiowide</code>, <code>oxanium</code>, <code>orbitron</code>, <code>michroma</code>, <code>tektur</code>, <code>rajdhani</code>, <code>chakraPetch</code>, <code>shareTechMono</code>. Limits: <code>textScalePct</code> 85 to 130, <code>cornerDp</code> 0 to 28, <code>borderDp</code> 0 to 3. Text must stay readable against its background: Iconic still saves a theme that isn't, says which text is hard to read, and its theme editor offers the nearest colours that pass.</p>
+  <p>The look of the Iconic app itself (its screens, never the widgets) can come from an AI too. Put <code>"theme"</code> next to a layout, <code>{"items": [...], "theme": {...}}</code> or <code>{"configs": [...], "theme": {...}}</code>, or answer <code>{"theme": {...}}</code> alone. A small example:</p>
+<pre><code>{"theme": {"name": "Sunset", "background": "#1A1210", "surface": "#241A16", "accent": "#FF8A3D", "onAccent": "#1A0E06", "text": "#FBEFE8", "mutedText": "#C9AFA3", "font": "Chakra Petch"}}</code></pre>
+  <p>Every option, the fonts, the limits and more examples are in the <a href="themes.html">app themes guide</a>. The App theme screen also has its own AI prompt, for when you only want a theme.</p>
 
   <h2>Sizing guide</h2>
   <p>For the auto layout, work out how many icons fit before choosing the icon size and the number of apps. All sizes are in dp (labels and titles are in sp, counted the same here).</p>

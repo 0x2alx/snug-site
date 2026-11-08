@@ -35,19 +35,19 @@
     },
     "appTheme": {
       "type": "object",
-      "required": ["id", "name"],
       "properties": {
         "id": { "type": "string" }, "name": { "type": "string" }, "dark": { "type": "boolean" },
         "background": { "$ref": "#/$defs/color" }, "surface": { "$ref": "#/$defs/color" }, "surfaceVariant": { "$ref": "#/$defs/color" },
         "border": { "$ref": "#/$defs/color" }, "accent": { "$ref": "#/$defs/color" }, "onAccent": { "$ref": "#/$defs/color" },
         "text": { "$ref": "#/$defs/color" }, "mutedText": { "$ref": "#/$defs/color" }, "danger": { "$ref": "#/$defs/color" },
-        "headingFont": { "$ref": "#/$defs/appFont" }, "bodyFont": { "$ref": "#/$defs/appFont" },
+        "font": { "$ref": "#/$defs/appFont" },
+        "headingFont": { "$ref": "#/$defs/appFont", "description": "Older name for font." }, "bodyFont": { "$ref": "#/$defs/appFont", "description": "Older name for font." },
         "textScalePct": { "type": "integer", "minimum": 85, "maximum": 130 },
         "cornerDp": { "type": "integer", "minimum": 0, "maximum": 28 },
         "borderDp": { "type": "integer", "minimum": 0, "maximum": 3 }
       }
     },
-    "appFont": { "enum": ["default", "condensed", "serif", "monospace", "audiowide", "oxanium", "orbitron", "michroma", "tektur", "rajdhani", "chakraPetch", "shareTechMono"] },
+    "appFont": { "type": "string", "description": "One font for all the app's text: Phone default, Condensed, Serif, Mono, Audiowide, Oxanium, Orbitron, Michroma, Tektur, Rajdhani, Chakra Petch, Share Tech Mono. Case and spaces don't matter." },
     "color": {
       "description": "\"#RRGGBB\" or \"#AARRGGBB\" (alpha first).",
       "type": "string",

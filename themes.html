@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iconic app themes</title>
+<meta name="description" content="Make your own Iconic theme by hand or with an AI assistant: every option, the JSON format, and examples.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="assets/iconic-logo.png" alt="">
+    <a href="index.html">Iconic</a>
+    <nav><a href="faq.html">FAQ</a><a href="ai.html">AI</a><a href="themes.html" aria-current="page">Themes</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  </header>
+
+  <h1>App themes</h1>
+  <p class="muted">Pick how Iconic looks, make your own theme, or have an AI assistant design one. This page is for you and for the AI.</p>
+
+  <h2>What a theme changes</h2>
+  <p>A theme sets the colours, the font (one font for all the text), the text size, how round the corners are and how thick the outlines are, across every screen of the app. It styles Iconic's own screens; your widgets keep the look you give each of them in its editor.</p>
+  <p>Open the menu (top left) and tap <strong>App theme</strong>. Tap a theme to use it. <strong>Match the phone</strong> uses Daylight while your phone is in light mode.</p>
+
+  <h2>Built-in themes</h2>
+  <table>
+    <thead><tr><th>Theme</th><th>Look</th><th>Font</th></tr></thead>
+    <tbody>
+      <tr><td>Graphite</td><td>The default. Charcoal with one blue accent.</td><td>The phone's own</td></tr>
+      <tr><td>Daylight</td><td>Light: off-white, white cards, blue accent.</td><td>The phone's own</td></tr>
+      <tr><td>Neon</td><td>Near-black with cyan and magenta.</td><td>Oxanium</td></tr>
+      <tr><td>Clumsy Clanker</td><td>Our signature, the same in all our apps: deep purple, bright gold, neon violet edges.</td><td>Audiowide</td></tr>
+      <tr><td>High contrast</td><td>Black, white and yellow, larger text, thick outlines.</td><td>The phone's own</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Make your own</h2>
+  <ul>
+    <li><strong>Create your own theme</strong> starts from the theme you're using. Change any colour, the font, the text size, corners and outlines, with a live preview.</li>
+    <li><strong>Customize</strong> on a built-in theme starts from that one. <strong>Duplicate</strong> (on any theme) saves a copy you can change.</li>
+    <li>Your themes are listed under <strong>Your themes</strong>, where you can edit, duplicate or delete them.</li>
+    <li>If a colour makes text hard to read, the editor says so and offers the nearest colour that is readable (it follows the WCAG contrast guidelines).</li>
+    <li>Your themes are in the app's backup (menu, Backup and restore), so they move to a new phone with the rest.</li>
+  </ul>
+
+  <h2>Make one with AI</h2>
+  <ol>
+    <li>On the App theme screen, tap <strong>AI prompt</strong>.</li>
+    <li>Describe the theme you want, like "warm sunset colours, rounded corners, a techy font, bigger text", and tap <strong>Copy full prompt</strong>.</li>
+    <li>Paste it into any AI chat (ChatGPT, Gemini, Claude...). The prompt tells the AI what Iconic is, where this page is, the format and your current theme.</li>
+    <li>Copy the AI's whole answer, then tap <strong>Paste the answer</strong> and <strong>Import</strong>. The new theme is saved with your themes and switched on.</li>
+  </ol>
+  <p>Nothing is sent anywhere by Iconic: you copy and paste yourself, to the assistant you choose.</p>
+
+  <h2>Import a theme</h2>
+  <p>Tap <strong>Import a theme</strong>, then paste a theme's JSON or choose a file. An AI's whole answer is fine (the JSON can sit in a code block among other text), and so is a theme someone shared. A theme can also come in through <strong>Build with AI</strong> or <strong>Restore from file</strong>, next to your layouts. Only themes are imported: anything else in the file is left alone, and text with no theme in it changes nothing.</p>
+
+  <h2>Format reference</h2>
+  <p>A theme is one JSON object. Everything is optional: whatever is left out comes from the theme you're using, so a theme can be as small as one colour.</p>
+<pre><code>{
+  "name": "Sunset",
+  "dark": true,
+  "background": "#1A1210",
+  "surface": "#241A16",
+  "surfaceVariant": "#30221C",
+  "border": "#4A332A",
+  "accent": "#FF8A3D",
+  "onAccent": "#1A0E06",
+  "text": "#FBEFE8",
+  "mutedText": "#C9AFA3",
+  "danger": "#FF5C5C",
+  "font": "Chakra Petch",
+  "textScalePct": 105,
+  "cornerDp": 20,
+  "borderDp": 1
+}</code></pre>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>name</code></td><td>text</td><td>The theme's name, up to 40 characters.</td></tr>
+      <tr><td><code>dark</code></td><td>true / false</td><td>Whether it's a dark theme (status bar icons follow it). Left out, it's worked out from the background.</td></tr>
+      <tr><td><code>background</code></td><td>colour</td><td>The screen behind everything.</td></tr>
+      <tr><td><code>surface</code></td><td>colour</td><td>Cards and sheets.</td></tr>
+      <tr><td><code>surfaceVariant</code></td><td>colour</td><td>Inputs, chips and tonal buttons.</td></tr>
+      <tr><td><code>border</code></td><td>colour</td><td>Outlines and dividers.</td></tr>
+      <tr><td><code>accent</code></td><td>colour</td><td>Buttons, switches, links and highlights.</td></tr>
+      <tr><td><code>onAccent</code></td><td>colour</td><td>Text and icons on accent buttons.</td></tr>
+      <tr><td><code>text</code></td><td>colour</td><td>Main text.</td></tr>
+      <tr><td><code>mutedText</code></td><td>colour</td><td>Secondary text, hints and icons.</td></tr>
+      <tr><td><code>danger</code></td><td>colour</td><td>Warnings and errors.</td></tr>
+      <tr><td><code>font</code></td><td>text</td><td>One font for all the text: <code>Phone default</code>, <code>Condensed</code>, <code>Serif</code>, <code>Mono</code>, <code>Audiowide</code>, <code>Oxanium</code>, <code>Orbitron</code>, <code>Michroma</code>, <code>Tektur</code>, <code>Rajdhani</code>, <code>Chakra Petch</code>, <code>Share Tech Mono</code>. Case and spaces don't matter.</td></tr>
+      <tr><td><code>textScalePct</code></td><td>number</td><td>Text size, 85 to 130 (percent). It multiplies your phone's own text size.</td></tr>
+      <tr><td><code>cornerDp</code></td><td>number</td><td>Corner roundness, 0 (square) to 28.</td></tr>
+      <tr><td><code>borderDp</code></td><td>number</td><td>Outline width, 0 to 3.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Colours</strong> are <code>"#RRGGBB"</code>, like <code>"#FF8A3D"</code>. Numbers outside their range are brought into it.</p>
+  <p><strong>Readable text:</strong> aim for a contrast of at least 4.5:1 for <code>text</code> on <code>background</code> and on <code>surface</code>, and for <code>onAccent</code> on <code>accent</code>; at least 3:1 for <code>mutedText</code> on <code>surface</code>. A theme that misses this is still imported, with a note saying what is hard to read, and the editor can fix it.</p>
+  <p><strong>What the importer forgives:</strong> the JSON can be inside a code block or among other text. A value it can't read (a colour written as "red", a font it doesn't have) keeps the previous one, with a note, and the rest still imports. <code>headingFont</code> and <code>bodyFont</code> from older versions are read as <code>font</code>.</p>
+
+  <h3>More shapes</h3>
+  <p>Several themes at once, choosing which one to use by its name:</p>
+<pre><code>{"custom": [{"name": "Sunset", "accent": "#FF8A3D"}, {"name": "Forest", "accent": "#3DDC84"}], "selectedId": "Forest"}</code></pre>
+  <p>Just switch to a built-in theme (<code>graphite</code>, <code>daylight</code>, <code>neon</code>, <code>clumsy-clanker</code>, <code>high-contrast</code>):</p>
+<pre><code>{"theme": "clumsy-clanker"}</code></pre>
+  <p>A small change to the theme you're using, here a red accent:</p>
+<pre><code>{"name": "Red accent", "accent": "#FF5252", "onAccent": "#1A0000"}</code></pre>
+  <p>A theme can also be wrapped as <code>{"theme": {...}}</code>, the way it appears in a backup.</p>
+
+  <footer><a href="index.html">Iconic</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+</div>
+</body>
+</html>
