@@ -1,6 +1,6 @@
-# iconic-site
+# snug-site
 
-Public pages for the Iconic Android app, served by GitHub Pages:
+Public pages for the Snug Android app, served by GitHub Pages:
 
 - `index.html`: home
 - `faq.html`: FAQ (the app's Help screen links here)

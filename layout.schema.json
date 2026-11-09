@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://0x2alx.github.io/iconic-site/layout.schema.json",
-  "title": "Iconic layout",
-  "description": "A widget layout for the Iconic Android app, or a {\"configs\": [...]} list of them, optionally with the app theme. Documented at https://0x2alx.github.io/iconic-site/ai.html",
+  "$id": "https://0x2alx.github.io/snug-site/layout.schema.json",
+  "title": "Snug layout",
+  "description": "A widget layout for the Snug Android app, or a {\"configs\": [...]} list of them, optionally with the app theme. Documented at https://0x2alx.github.io/snug-site/ai.html",
   "oneOf": [
     { "$ref": "#/$defs/layout" },
     {
@@ -25,7 +25,7 @@
   ],
   "$defs": {
     "theme": {
-      "description": "The look of the Iconic app itself (its screens, not the widgets). See ai.html, The app theme.",
+      "description": "The look of the Snug app itself (its screens, not the widgets). See ai.html, The app theme.",
       "type": "object",
       "properties": {
         "selectedId": { "type": "string", "description": "graphite, daylight, neon, clumsy-clanker, high-contrast, or the id of a custom theme." },
@@ -183,7 +183,7 @@
             "type": { "const": "app" },
             "packageName": { "type": "string", "minLength": 1 },
             "label": { "type": "string" },
-            "activityName": { "type": "string", "description": "Optional; Iconic finds the launcher activity itself." },
+            "activityName": { "type": "string", "description": "Optional; Snug finds the launcher activity itself." },
             "icon": { "$ref": "#/$defs/icon" }
           }
         },

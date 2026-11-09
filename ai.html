@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Build layouts with AI</title>
-<meta name="description" content="How to have ChatGPT, Claude, Gemini or any AI assistant write Iconic widget layouts, and the layout format it needs.">
+<meta name="description" content="How to have ChatGPT, Claude, Gemini or any AI assistant write Snug widget layouts, and the layout format it needs.">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <img src="assets/iconic-logo.png" alt="">
-    <a href="index.html">Iconic</a>
+    <img src="assets/snug-logo.png" alt="">
+    <a href="index.html">Snug</a>
     <nav><a href="faq.html">FAQ</a><a href="ai.html" aria-current="page">AI</a><a href="themes.html">Themes</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </header>
 
@@ -20,25 +20,25 @@
   <p class="muted">Describe your widgets to an AI assistant and it writes the layout. This page is for you and for the AI.</p>
 
   <h2>What it is</h2>
-  <p>Describe the widgets you want to ChatGPT, Claude, Gemini or any AI assistant, and it writes the layout: which apps, in what order, in which sections, with what look. Iconic imports the answer. It is a Pro feature, and Pro is free during early access.</p>
+  <p>Describe the widgets you want to ChatGPT, Claude, Gemini or any AI assistant, and it writes the layout: which apps, in what order, in which sections, with what look. Snug imports the answer. It is a Pro feature, and Pro is free during early access.</p>
 
   <h2>How to use it</h2>
   <ol>
-    <li>In Iconic, open the menu (top left), tap <strong>Build with AI</strong>, then <strong>Copy my setup</strong>. This copies your widgets, their sizes and your installed apps, with instructions for the AI.</li>
+    <li>In Snug, open the menu (top left), tap <strong>Build with AI</strong>, then <strong>Copy my setup</strong>. This copies your widgets, their sizes and your installed apps, with instructions for the AI.</li>
     <li>Paste it into your AI and say what you want.</li>
-    <li>Copy the AI's answer and tap <strong>Import from clipboard</strong> in Iconic, or share the answer to Iconic.</li>
+    <li>Copy the AI's answer and tap <strong>Import from clipboard</strong> in Snug, or share the answer to Snug.</li>
   </ol>
-  <p>A new layout is saved and you can put it on a widget right away. If the AI changed one of your existing widgets (by its <code>widgetId</code>), Iconic asks before replacing it.</p>
-  <p>You can also open or share a <code>.json</code> layout file to Iconic.</p>
+  <p>A new layout is saved and you can put it on a widget right away. If the AI changed one of your existing widgets (by its <code>widgetId</code>), Snug asks before replacing it.</p>
+  <p>You can also open or share a <code>.json</code> layout file to Snug.</p>
 
   <h2>Privacy</h2>
-  <p>Your setup only leaves your phone when you paste it somewhere yourself. Iconic itself sends nothing.</p>
+  <p>Your setup only leaves your phone when you paste it somewhere yourself. Snug itself sends nothing.</p>
 
   <h2>Starting from this website</h2>
   <p>If you want to start in your AI first, paste this prompt. Copy my setup in the app is better, because it includes your real app list and widget sizes.</p>
-<pre><code>I use Iconic, an Android app that shows small app icons in home-screen widgets.
+<pre><code>I use Snug, an Android app that shows small app icons in home-screen widgets.
 Write me a widget layout in the format documented at
-https://0x2alx.github.io/iconic-site/ai.html
+https://0x2alx.github.io/snug-site/ai.html
 Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p>Without your app list, the AI has to guess package names, and a wrong guess won't open anything.</p>
 
@@ -49,13 +49,13 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <ul>
     <li><strong>One layout:</strong> <code>{"name": "Media", "items": [...], ...settings}</code></li>
     <li><strong>Several layouts:</strong> <code>{"configs": [layout, layout]}</code>. A plain list of layouts, <code>[layout, layout]</code>, also works, and so does a backup file made by <strong>Back up to file</strong>.</li>
-    <li><strong>widgetId:</strong> optional. Give the id of one of your widgets (listed in Copy my setup) to change it in place. The layout replaces the widget's whole setup (nothing is merged), so give its complete new item list; Iconic asks before replacing it. Leave it out, or use 0, and the layout is saved and you pick where it goes.</li>
+    <li><strong>widgetId:</strong> optional. Give the id of one of your widgets (listed in Copy my setup) to change it in place. The layout replaces the widget's whole setup (nothing is merged), so give its complete new item list; Snug asks before replacing it. Leave it out, or use 0, and the layout is saved and you pick where it goes.</li>
   </ul>
 
   <h3>Items</h3>
   <p><code>items</code> lists what the widget shows, in display order. Each item has a <code>type</code>:</p>
   <ul>
-    <li><code>{"type": "app", "packageName": "com.netflix.mediaclient", "label": "Netflix"}</code>: an app. <code>packageName</code> and <code>label</code> are required. Iconic finds the launcher activity itself, so <code>activityName</code> can be left out.</li>
+    <li><code>{"type": "app", "packageName": "com.netflix.mediaclient", "label": "Netflix"}</code>: an app. <code>packageName</code> and <code>label</code> are required. Snug finds the launcher activity itself, so <code>activityName</code> can be left out.</li>
     <li><code>{"type": "section", "label": "🎬 Watch"}</code>: starts a titled group of icons. Emoji work in titles. A blank label (<code>"label": ""</code>) draws a thin divider instead. Optional <code>sameRow</code> and <code>width</code> place it in a <a href="#section-grid">grid</a>, and an optional <a href="#section-style"><code>style</code></a> changes this section only.</li>
     <li><code>{"type": "link", "label": "News", "url": "https://example.com"}</code>: a web address, shown as a letter tile. <code>label</code> and <code>url</code> are required.</li>
   </ul>
@@ -66,12 +66,12 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <ul>
     <li>On the app or link, add <code>"icon": {"type": "image", "file": "reddit"}</code>. The <code>file</code> is any name you choose.</li>
     <li>Next to <code>items</code> (or next to <code>configs</code>), add an <code>icons</code> map from that name to the image as base64: <code>"icons": {"reddit": "iVBORw0KGgo..."}</code>. PNG, JPEG and WebP work, and so does a <code>data:image/png;base64,</code> address.</li>
-    <li>Use a square image, about 256 px, with its own background colour. It fills the whole icon shape, like the app icons next to it. Iconic crops anything else to a square and scales it to 256 px.</li>
-    <li>Check the image is the right logo before you use it. Iconic never downloads anything itself.</li>
+    <li>Use a square image, about 256 px, with its own background colour. It fills the whole icon shape, like the app icons next to it. Snug crops anything else to a square and scales it to 256 px.</li>
+    <li>Check the image is the right logo before you use it. Snug never downloads anything itself.</li>
   </ul>
 
   <h3>Settings</h3>
-  <p>All settings are optional. A setting that is left out, or has a value Iconic can't read, takes its default. Names of types and values ignore case, so <code>"Squircle"</code> works, but write them as shown.</p>
+  <p>All settings are optional. A setting that is left out, or has a value Snug can't read, takes its default. Names of types and values ignore case, so <code>"Squircle"</code> works, but write them as shown.</p>
   <table>
     <thead><tr><th>Setting</th><th>Type</th><th>Default</th><th>Allowed values and meaning</th></tr></thead>
     <tbody>
@@ -82,7 +82,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
       <tr><td><code>gapDp</code></td><td>number</td><td>4</td><td>0 to 32. Space between icons and lines.</td></tr>
       <tr><td><code>shape</code></td><td>text</td><td><code>"original"</code></td><td><code>"original"</code>, <code>"circle"</code>, <code>"squircle"</code>, <code>"rounded"</code>, <code>"teardrop"</code>.</td></tr>
       <tr><td><code>labels</code></td><td>object</td><td><code>{"show": false, "colorArgb": "#FFFFFF", "sizeSp": 11}</code></td><td>Names under the icons. <code>show</code> is true or false; <code>sizeSp</code> is 8 to 16. Section titles use this size too, unless <code>titles.sizeSp</code> is set. Optional <code>sectionArgb</code> colours the section titles and dividers; without it they use <code>colorArgb</code>.</td></tr>
-      <tr><td><code>titles</code></td><td>object</td><td><code>{"sizeSp": null, "bold": true, "font": "default", "align": "center"}</code></td><td>How section titles look, for the whole widget. <code>sizeSp</code> is 8 to 24, or null to use the label size. <code>bold</code> is true or false. <code>font</code> is <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code> or <code>"smallCaps"</code> (the phone's own fonts), or one bundled with Iconic: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code> or <code>"shareTechMono"</code>. <code>align</code> is <code>"start"</code>, <code>"center"</code> or <code>"end"</code>. The colour comes from <code>labels.sectionArgb</code> (and <code>night.sectionArgb</code> in dark mode). A section can override any of this with its own <a href="#section-style"><code>style</code></a>.</td></tr>
+      <tr><td><code>titles</code></td><td>object</td><td><code>{"sizeSp": null, "bold": true, "font": "default", "align": "center"}</code></td><td>How section titles look, for the whole widget. <code>sizeSp</code> is 8 to 24, or null to use the label size. <code>bold</code> is true or false. <code>font</code> is <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code> or <code>"smallCaps"</code> (the phone's own fonts), or one bundled with Snug: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code> or <code>"shareTechMono"</code>. <code>align</code> is <code>"start"</code>, <code>"center"</code> or <code>"end"</code>. The colour comes from <code>labels.sectionArgb</code> (and <code>night.sectionArgb</code> in dark mode). A section can override any of this with its own <a href="#section-style"><code>style</code></a>.</td></tr>
       <tr><td><code>sectionGapDp</code></td><td>number</td><td>8</td><td>0 to 32. Space between side-by-side sections and between grid rows. See <a href="#section-grid">Section grid</a>.</td></tr>
     </tbody>
   </table>
@@ -120,7 +120,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p><strong>What the importer forgives:</strong> the JSON can sit inside a code fence or among other text, as AI answers usually do. Trailing commas and comments are allowed. An item or layout that can't be read is skipped and the rest still imports.</p>
 
   <h3>The app theme</h3>
-  <p>The look of the Iconic app itself (its screens, never the widgets) can come from an AI too. Put <code>"theme"</code> next to a layout, <code>{"items": [...], "theme": {...}}</code> or <code>{"configs": [...], "theme": {...}}</code>, or answer <code>{"theme": {...}}</code> alone. A small example:</p>
+  <p>The look of the Snug app itself (its screens, never the widgets) can come from an AI too. Put <code>"theme"</code> next to a layout, <code>{"items": [...], "theme": {...}}</code> or <code>{"configs": [...], "theme": {...}}</code>, or answer <code>{"theme": {...}}</code> alone. A small example:</p>
 <pre><code>{"theme": {"name": "Sunset", "background": "#1A1210", "surface": "#241A16", "accent": "#FF8A3D", "onAccent": "#1A0E06", "text": "#FBEFE8", "mutedText": "#C9AFA3", "font": "Chakra Petch"}}</code></pre>
   <p>Every option, the fonts, the limits and more examples are in the <a href="themes.html">app themes guide</a>. The App theme screen also has its own AI prompt, for when you only want a theme.</p>
 
@@ -161,7 +161,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
 }</code></pre>
 
   <h3>Two layouts, one replacing a widget</h3>
-  <p>The first layout has a <code>widgetId</code>, so Iconic offers to replace that widget. The second has none and is saved as a new layout.</p>
+  <p>The first layout has a <code>widgetId</code>, so Snug offers to replace that widget. The second has none and is saved as a new layout.</p>
 <pre><code>{
   "configs": [
     {
@@ -193,7 +193,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   ]
 }</code></pre>
 
-  <footer><a href="index.html">Iconic</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+  <footer><a href="index.html">Snug</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
 </div>
 </body>
 </html>
