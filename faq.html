@@ -44,8 +44,8 @@
     <ul>
       <li><strong>Apps:</strong> tick as many as you like.</li>
       <li><strong>Shortcuts:</strong> things apps offer to put on the home screen, like a WhatsApp chat, a direct-dial contact or Maps directions.</li>
-      <li><strong>Links:</strong> any web address. It shows as a letter tile unless you give it an icon.</li>
-      <li><strong>Sections:</strong> a title (or a plain divider) that starts a new group of icons.</li>
+      <li><strong>Links (Pro):</strong> any web address. It shows as a letter tile unless you give it an icon.</li>
+      <li><strong>Sections (Pro):</strong> a title (or a plain divider) that starts a new group of icons. Sections can sit side by side as a grid: see <a href="#grids">Sections and grids</a>.</li>
     </ul>
     <p>Tap an item in the editor to rename it or give it another icon. Hold the handle to reorder the list, or hold an icon in the preview and drop it where you want it.</p>
   </details>
@@ -62,9 +62,7 @@
       <li><strong>Fixed:</strong> you pick the rows and columns.</li>
       <li>Tall widgets read down each column first; wide ones read across.</li>
       <li><strong>Scroll:</strong> when apps don't fit, keep the icons at full size and scroll inside the widget.</li>
-      <li><strong>Sections (up to 12):</strong> in <strong>Layout</strong>, <strong>Sections</strong> shows them in rows. Tap <strong>Stack all</strong> or <strong>All in one row</strong>, or tap a section's title and, under <strong>Place in the widget</strong>, turn on <strong>Next to the section before</strong> and set its <strong>Width</strong> in its row. <strong>Space between sections</strong> sets the gap. Several rows of side-by-side sections are Pro; stacked sections or one row are free.</li>
-      <li><strong>A section's own look:</strong> in the same sheet, <strong>This section's icons and look</strong> has the widget's Layout and Look settings for that section only (icon size, labels, shape, background and more). <strong>Use the widget's settings</strong> resets it. Sections in a grid can't scroll.</li>
-      <li><strong>Own icon spacing:</strong> tap a section's title in the app list, turn on <strong>Own icon spacing</strong>, and use <strong>Same across and down</strong>, or set <strong>Across</strong> and <strong>Down</strong> separately.</li>
+      <li><strong>Sections:</strong> stacked one under another, or side by side as a grid, each with its own look if you like. See <a href="#grids">Sections and grids</a>.</li>
     </ul>
     <p>The editor's preview shows the widget at its real size; if some apps can't fit, it says how many.</p>
   </details>
@@ -75,10 +73,14 @@
       <li><strong>Icon pack:</strong> use any installed icon pack (the ones made for launchers like Nova).</li>
       <li><strong>Shape:</strong> circle, squircle, rounded or teardrop, so mixed icons look uniform.</li>
       <li><strong>Labels:</strong> names under the icons, in any colour and size.</li>
-      <li><strong>Section titles:</strong> size, bold, font and alignment for every section title (emoji work too). To style one section differently, tap its title in the app list.</li>
+      <li><strong>Section titles:</strong> 16 fonts (8 of your phone's own and 8 that come with Snug), size, colour, bold and alignment, and an optional coloured badge behind the title. Emoji work too. To style one section differently, tap its title in the app list and turn on <strong>Own title style</strong>.</li>
       <li><strong>Background:</strong> transparent, solid or a rounded card, with your colour and opacity.</li>
       <li><strong>Dark mode:</strong> give the widget different colours while your phone is in dark mode.</li>
     </ul>
+  </details>
+  <details>
+    <summary>Can I change how the Snug app itself looks?</summary>
+    <p>Yes, with an app theme: menu (top left), <strong>App theme</strong>. Pick a built-in theme, <strong>Create your own theme</strong> (colours, font, text size, corners and borders), have your AI design one with <strong>AI prompt</strong>, or <strong>Import a theme</strong> from a file. App themes style Snug's own screens; your widgets keep the look you give each of them in its editor. The <a href="themes.html">themes guide</a> has the details.</p>
   </details>
   <details>
     <summary>Can I sort the icons?</summary>
@@ -88,6 +90,65 @@
       <li><strong>Most used:</strong> the apps you opened most in the last two weeks come first. It needs Usage access, which only lets Snug count app opens on your phone. It re-sorts every few hours.</li>
     </ul>
     <p>With sections, each section is sorted on its own.</p>
+  </details>
+
+  <h2 id="grids">Sections and grids <span class="free">PRO · FREE FOR NOW</span></h2>
+  <details open>
+    <summary>How do sections work?</summary>
+    <p>A section is a title (or a plain divider, if you leave the title empty) with the apps under it. In the editor's app list, a section holds every app below it, down to the next section. So the list reads top to bottom, exactly like the widget.</p>
+    <ul>
+      <li><strong>Add section</strong> and <strong>Add apps</strong> both add to the end of the list. Build in reading order: a section, then its apps, then the next section, then its apps.</li>
+      <li>To move an app into another section, hold its handle in the list (or the icon in the preview) and drop it below that section's title.</li>
+      <li><strong>Move earlier</strong> and <strong>Move later</strong>, in a section's sheet, move the whole section with its apps.</li>
+      <li>Up to 12 sections per widget.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>How do I build a grid?</summary>
+    <p>A grid is rows of sections side by side. Here's a 2&nbsp;×&nbsp;2 grid:</p>
+    <div class="gridpic" role="img" aria-label="A widget with Google and Phone side by side on top, Watch and Tools side by side below">
+      <div class="gr"><div class="gc"><b>Google</b>4 apps</div><div class="gc"><b>Phone</b>4 apps</div></div>
+      <div class="gr"><div class="gc"><b>Watch</b>2 apps</div><div class="gc"><b>Tools</b>5 apps</div></div>
+    </div>
+    <ol>
+      <li>Tap <strong>Add section</strong> and title it Google. Close the sheet, tap <strong>Add apps</strong> and pick its apps.</li>
+      <li><strong>Add section</strong> again: Phone. In its sheet, under <strong>Place in the widget</strong>, turn on <strong>Next to the section before</strong>. It moves to the right of Google. Add its apps.</li>
+      <li><strong>Add section</strong>: Watch. Leave <strong>Next to the section before</strong> off, so it starts a new row. Add its apps.</li>
+      <li><strong>Add section</strong>: Tools, with <strong>Next to the section before</strong> on. Add its apps. Done.</li>
+    </ol>
+    <p>To change a section later, tap its title in the app list: the same sheet opens, just below the preview, so you see each change as you make it.</p>
+  </details>
+  <details>
+    <summary>How are rows and widths worked out?</summary>
+    <ul>
+      <li><strong>Rows:</strong> a section with <strong>Next to the section before</strong> on joins the row of the section before it. A section with it off starts a new row. A row is as tall as its tallest section.</li>
+      <li><strong>Widths:</strong> once a section shares a row, its sheet shows <strong>Width in its row</strong>, from 1 to 6. Sections split the row by these shares: 2 and 1 gives two thirds and one third.</li>
+      <li><strong>Columns:</strong> there's no separate column setting. Sections line up as columns when every row has the same number of sections with the same widths, like the 2&nbsp;×&nbsp;2 grid above.</li>
+    </ul>
+    <div class="gridpic" role="img" aria-label="Work, width 2, beside Fun, width 1">
+      <div class="gr"><div class="gc" style="--w:2"><b>Work</b>width 2</div><div class="gc"><b>Fun</b>width 1</div></div>
+    </div>
+    <div class="gridpic" role="img" aria-label="Daily across the whole top row, then Social, Games and Money side by side below">
+      <div class="gr"><div class="gc"><b>Daily</b>its own row</div></div>
+      <div class="gr"><div class="gc"><b>Social</b>new row</div><div class="gc"><b>Games</b>next to</div><div class="gc"><b>Money</b>next to</div></div>
+    </div>
+  </details>
+  <details>
+    <summary>Is there a quicker way to arrange them?</summary>
+    <p>With two or more sections, <strong>Layout</strong> has a <strong>Sections</strong> block that shows your rows. <strong>Stack all</strong> puts every section on its own row; <strong>All in one row</strong> puts them all side by side. <strong>Space between sections</strong> sets the gap between sections and between rows.</p>
+  </details>
+  <details>
+    <summary>Can each section look different?</summary>
+    <ul>
+      <li><strong>Its icons and look:</strong> in a section's sheet, <strong>This section's icons and look</strong> has the widget's Layout and Look settings for that section only: icon size, labels, shape, background and more. <strong>Use the widget's settings</strong> resets it.</li>
+      <li><strong>Its title:</strong> turn on <strong>Own title style</strong> for its own font, size, colour, alignment and badge.</li>
+      <li><strong>Its spacing:</strong> turn on <strong>Own icon spacing</strong>, then use <strong>Same across and down</strong>, or set <strong>Across</strong> and <strong>Down</strong> separately.</li>
+    </ul>
+    <p>Each section's icon size is a maximum: a section with many apps, or a narrow share of its row, shrinks its icons until they all fit. When the whole grid is too tall for the widget, every section shrinks together. Sections in a grid can't scroll.</p>
+  </details>
+  <details>
+    <summary>Are sections free?</summary>
+    <p>Sections and grids are part of Pro, which is free during early access. Everyone who installs during early access keeps it.</p>
   </details>
 
   <h2>Badges</h2>
@@ -104,13 +165,14 @@
   <details>
     <summary>Will my widgets come back on a new phone?</summary>
     <p>Yes. Your widgets are part of your phone's Google backup and come back with your apps. If a widget can't be matched on the new phone, its setup is kept as a saved layout: add a widget and pick it under <strong>Start from</strong>.</p>
-    <p>You can also back up by hand: in Snug's menu (top left), <strong>Backup and restore</strong>, <strong>Back up to file</strong>, and save it to Google Drive or anywhere else. The file holds your widgets, saved layouts, custom icons and the app theme. <strong>Restore from file</strong> brings the setups back as saved layouts.</p>
+    <p>You can also back up by hand: in Snug's menu (top left), <strong>Backup and restore</strong>, <strong>Back up to file</strong>, and save it to Google Drive or anywhere else. The file holds your widgets, saved layouts, custom icons and the app theme. <strong>Restore from file</strong> asks before replacing widgets that are still on your home screen; everything else comes back as saved layouts.</p>
+    <p>You can also open or share a backup or layout file to Snug to import it. Anything another app hands to Snug asks first: <strong>Import into Snug?</strong></p>
   </details>
 
   <h2>Build with AI</h2>
   <details>
     <summary>Can an AI build my widgets?</summary>
-    <p>Yes. Describe what you want to ChatGPT, Claude, Gemini or any AI assistant and it writes the layout. In Snug's menu (top left), tap <strong>Build with AI</strong> and <strong>Copy my setup</strong>, paste it into your AI and say what you want. Then copy its answer and tap <strong>Import from clipboard</strong>, or share the answer to Snug. A new layout is saved and you can put it on a widget right away. If the AI changed one of your widgets, Snug asks before replacing it. It is a Pro feature, free for now. The <a href="ai.html">format is documented here</a>.</p>
+    <p>Yes. Describe what you want to ChatGPT, Claude, Gemini or any AI assistant and it writes the layout. In Snug's menu (top left), tap <strong>Build with AI</strong> and <strong>Copy my setup</strong>, paste it into your AI and say what you want. It can restyle the Snug app itself too, through the app theme. Then copy its answer and tap <strong>Import from clipboard</strong>, or share the answer to Snug. A new layout is saved and you can put it on a widget right away. If the AI changed one of your widgets, Snug asks before replacing it. It is a Pro feature, free for now. The <a href="ai.html">format is documented here</a>.</p>
   </details>
   <details>
     <summary>Does Snug send my apps to an AI?</summary>
@@ -126,9 +188,10 @@
       <li>Icon packs, and any icon or image for any app</li>
       <li>Icon shapes: circle, squircle, rounded, teardrop</li>
       <li>Scrolling widgets for long lists</li>
-      <li>Links and sections</li>
+      <li>Links and sections, including <a href="#grids">side-by-side grids</a></li>
       <li>A different look in dark mode</li>
       <li>Most-used order</li>
+      <li>Build layouts with AI: describe them, your AI writes them</li>
     </ul>
   </details>
   <details open>

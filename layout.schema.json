@@ -64,6 +64,8 @@
         "bold": { "type": ["boolean", "null"], "default": null },
         "font": { "anyOf": [{ "$ref": "#/$defs/titleFont" }, { "type": "null" }], "default": null },
         "align": { "anyOf": [{ "$ref": "#/$defs/titleAlign" }, { "type": "null" }], "default": null },
+        "titleBadge": { "type": ["boolean", "null"], "default": null, "description": "A rounded pill behind this section's title." },
+        "titleBadgeArgb": { "anyOf": [{ "$ref": "#/$defs/color" }, { "type": "null" }], "default": null, "description": "The pill's colour; null is translucent black." },
         "gapXDp": { "type": ["integer", "null"], "minimum": 0, "maximum": 32, "default": null, "description": "Space between this section's icons across. Replaces gapDp there, so it can change the column count." },
         "gapYDp": { "type": ["integer", "null"], "minimum": 0, "maximum": 32, "default": null, "description": "Space between this section's rows. Gaps around titles stay gapDp." },
         "iconSizeDp": { "type": ["integer", "null"], "minimum": 16, "maximum": 96, "default": null, "description": "Largest icon size in this section. The section keeps it when a grid shrinks." },
@@ -117,13 +119,15 @@
         },
         "titles": {
           "type": "object",
-          "default": { "sizeSp": null, "bold": true, "font": "default", "align": "center" },
+          "default": { "sizeSp": null, "bold": true, "font": "default", "align": "center", "badge": false, "badgeArgb": null },
           "description": "Section title style for the whole widget. Colour comes from labels.sectionArgb (night.sectionArgb in dark mode). A section's own style overrides it.",
           "properties": {
             "sizeSp": { "type": ["integer", "null"], "minimum": 8, "maximum": 24, "default": null, "description": "Null uses labels.sizeSp." },
             "bold": { "type": "boolean", "default": true },
             "font": { "$ref": "#/$defs/titleFont", "default": "default" },
-            "align": { "$ref": "#/$defs/titleAlign", "default": "center" }
+            "align": { "$ref": "#/$defs/titleAlign", "default": "center" },
+            "badge": { "type": "boolean", "default": false, "description": "A rounded pill behind each title, so it stands out on any wallpaper." },
+            "badgeArgb": { "anyOf": [{ "$ref": "#/$defs/color" }, { "type": "null" }], "default": null, "description": "The pill's colour; null is translucent black." }
           }
         },
         "sectionGapDp": { "type": "integer", "minimum": 0, "maximum": 32, "default": 8, "description": "Space between side-by-side sections and between grid rows." },

@@ -65,3 +65,9 @@ pre code { background: none; padding: 0; overflow-wrap: normal; }
 th, td { text-align: left; vertical-align: top; padding: .5rem .7rem; border-top: 1px solid var(--line); }
 th { color: var(--accent); white-space: nowrap; }
 td:first-child { white-space: nowrap; }
+
+/* Small widget diagrams in the FAQ's grid guide: rows of sections, each sharing its row by --w. */
+.gridpic { display: grid; gap: 6px; max-width: 300px; padding: 10px; margin: .9rem 0 .9rem 1.7rem; background: var(--void); border: 1px solid var(--line); border-radius: 14px; }
+.gridpic .gr { display: flex; gap: 6px; }
+.gridpic .gc { flex: var(--w, 1); min-width: 0; padding: .4rem .55rem; background: var(--deep); border: 1px solid var(--line); border-radius: 8px; font-size: .78rem; color: var(--muted); line-height: 1.3; }
+.gridpic .gc b { display: block; color: var(--accent); font-size: .82rem; }

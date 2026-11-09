@@ -29,7 +29,7 @@
     <li>Copy the AI's answer and tap <strong>Import from clipboard</strong> in Snug, or share the answer to Snug.</li>
   </ol>
   <p>A new layout is saved and you can put it on a widget right away. If the AI changed one of your existing widgets (by its <code>widgetId</code>), Snug asks before replacing it.</p>
-  <p>You can also open or share a <code>.json</code> layout file to Snug.</p>
+  <p>You can also open or share a <code>.json</code> layout file to Snug. Anything another app hands to Snug, a file or an AI's shared answer, asks first: <strong>Import into Snug?</strong></p>
 
   <h2>Privacy</h2>
   <p>Your setup only leaves your phone when you paste it somewhere yourself. Snug itself sends nothing.</p>
@@ -82,7 +82,7 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
       <tr><td><code>gapDp</code></td><td>number</td><td>4</td><td>0 to 32. Space between icons and lines.</td></tr>
       <tr><td><code>shape</code></td><td>text</td><td><code>"original"</code></td><td><code>"original"</code>, <code>"circle"</code>, <code>"squircle"</code>, <code>"rounded"</code>, <code>"teardrop"</code>.</td></tr>
       <tr><td><code>labels</code></td><td>object</td><td><code>{"show": false, "colorArgb": "#FFFFFF", "sizeSp": 11}</code></td><td>Names under the icons. <code>show</code> is true or false; <code>sizeSp</code> is 8 to 16. Section titles use this size too, unless <code>titles.sizeSp</code> is set. Optional <code>sectionArgb</code> colours the section titles and dividers; without it they use <code>colorArgb</code>.</td></tr>
-      <tr><td><code>titles</code></td><td>object</td><td><code>{"sizeSp": null, "bold": true, "font": "default", "align": "center"}</code></td><td>How section titles look, for the whole widget. <code>sizeSp</code> is 8 to 24, or null to use the label size. <code>bold</code> is true or false. <code>font</code> is <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code> or <code>"smallCaps"</code> (the phone's own fonts), or one bundled with Snug: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code> or <code>"shareTechMono"</code>. <code>align</code> is <code>"start"</code>, <code>"center"</code> or <code>"end"</code>. The colour comes from <code>labels.sectionArgb</code> (and <code>night.sectionArgb</code> in dark mode). A section can override any of this with its own <a href="#section-style"><code>style</code></a>.</td></tr>
+      <tr><td><code>titles</code></td><td>object</td><td><code>{"sizeSp": null, "bold": true, "font": "default", "align": "center", "badge": false, "badgeArgb": null}</code></td><td>How section titles look, for the whole widget. <code>sizeSp</code> is 8 to 24, or null to use the label size. <code>bold</code> is true or false. <code>font</code> is <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code> or <code>"smallCaps"</code> (the phone's own fonts), or one bundled with Snug: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code> or <code>"shareTechMono"</code>. <code>align</code> is <code>"start"</code>, <code>"center"</code> or <code>"end"</code>. <code>badge</code> true puts a rounded pill behind each title, so it stands out on any wallpaper; <code>badgeArgb</code> is its colour (null is translucent black). The colour comes from <code>labels.sectionArgb</code> (and <code>night.sectionArgb</code> in dark mode). A section can override any of this with its own <a href="#section-style"><code>style</code></a>.</td></tr>
       <tr><td><code>sectionGapDp</code></td><td>number</td><td>8</td><td>0 to 32. Space between side-by-side sections and between grid rows. See <a href="#section-grid">Section grid</a>.</td></tr>
     </tbody>
   </table>
@@ -107,6 +107,8 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
       <tr><td><code>bold</code></td><td>true or false</td><td>Bold title or not.</td></tr>
       <tr><td><code>font</code></td><td>text</td><td>Same values as <code>titles.font</code>: <code>"default"</code>, <code>"condensed"</code>, <code>"medium"</code>, <code>"serif"</code>, <code>"monospace"</code>, <code>"casual"</code>, <code>"cursive"</code>, <code>"smallCaps"</code>, or a bundled one: <code>"audiowide"</code>, <code>"oxanium"</code>, <code>"orbitron"</code>, <code>"michroma"</code>, <code>"tektur"</code>, <code>"rajdhani"</code>, <code>"chakraPetch"</code>, <code>"shareTechMono"</code>.</td></tr>
       <tr><td><code>align</code></td><td>text</td><td><code>"start"</code>, <code>"center"</code> or <code>"end"</code>.</td></tr>
+      <tr><td><code>titleBadge</code></td><td>true or false</td><td>A rounded pill behind this section's title.</td></tr>
+      <tr><td><code>titleBadgeArgb</code></td><td>colour</td><td>The pill's colour. Null is translucent black.</td></tr>
       <tr><td><code>gapXDp</code></td><td>number</td><td>0 to 32. Space between this section's icons across. It replaces <code>gapDp</code> there, so it can change how many columns fit.</td></tr>
       <tr><td><code>gapYDp</code></td><td>number</td><td>0 to 32. Space between this section's rows. Gaps around titles stay at <code>gapDp</code>.</td></tr>
       <tr><td><code>iconSizeDp</code></td><td>number</td><td>16 to 96. Largest icon size in this section. It keeps it when a grid shrinks.</td></tr>
@@ -118,6 +120,9 @@ Ask me what I want first. Then answer with one JSON code block.</code></pre>
   <p><strong>Colours</strong> are written as <code>"#RRGGBB"</code> or <code>"#AARRGGBB"</code> (alpha first), like <code>"#E53935"</code>.</p>
   <p>Numbers outside their range are brought into it.</p>
   <p><strong>What the importer forgives:</strong> the JSON can sit inside a code fence or among other text, as AI answers usually do. Trailing commas and comments are allowed. An item or layout that can't be read is skipped and the rest still imports.</p>
+
+  <h3 id="limits">Limits</h3>
+  <p>Snug reads files up to 20 MB. A widget keeps up to 500 items, and names and labels are cut to 100 characters. Up to 12 sections: a 13th section's title is dropped and its apps join the section before it. Numbers outside their range are brought into range, and anything Snug can't read is left out with a note.</p>
 
   <h3>The app theme</h3>
   <p>The look of the Snug app itself (its screens, never the widgets) can come from an AI too. Put <code>"theme"</code> next to a layout, <code>{"items": [...], "theme": {...}}</code> or <code>{"configs": [...], "theme": {...}}</code>, or answer <code>{"theme": {...}}</code> alone. A small example:</p>
