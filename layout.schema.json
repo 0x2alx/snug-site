@@ -28,7 +28,7 @@
       "description": "The look of the Snug app itself (its screens, not the widgets). See ai.html, The app theme.",
       "type": "object",
       "properties": {
-        "selectedId": { "type": "string", "description": "graphite, daylight, neon, clumsy-clanker, petty-officer, high-contrast, or the id of a custom theme." },
+        "selectedId": { "type": "string", "description": "clumsy-clanker, nightwalker, daywalker, petty-officer, high-contrast, neon, or the id of a custom theme." },
         "matchPhone": { "type": "boolean" },
         "custom": { "type": "array", "items": { "$ref": "#/$defs/appTheme" } }
       }
@@ -47,13 +47,13 @@
         "borderDp": { "type": "integer", "minimum": 0, "maximum": 3 }
       }
     },
-    "appFont": { "type": "string", "description": "One font for all the app's text: Phone default, Condensed, Serif, Mono, Audiowide, Oxanium, Orbitron, Michroma, Tektur, Rajdhani, Chakra Petch, Share Tech Mono. Case and spaces don't matter." },
+    "appFont": { "type": "string", "description": "One font for all the app's text: Phone default, Condensed, Serif, Mono, Audiowide, Oxanium, Orbitron, Michroma, Tektur, Rubik, Rajdhani, Chakra Petch, Share Tech Mono. Case and spaces don't matter." },
     "color": {
       "description": "\"#RRGGBB\" or \"#AARRGGBB\" (alpha first).",
       "type": "string",
       "pattern": "^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$"
     },
-    "titleFont": { "type": "string", "description": "A font Snug has: default, condensed, medium, serif, monospace, casual, cursive, smallCaps (the phone's own), audiowide, oxanium, orbitron, michroma, tektur, rajdhani, chakraPetch, shareTechMono, nunito, comfortaa, caveat, pacifico, playfairDisplay, lora, bebasNeue, righteous, spaceGrotesk, pressStart2P (case and spaces don't matter); or any Google Fonts family by its name, like \"Roboto Slab\".", "examples": ["default", "serif", "chakraPetch", "Roboto Slab"] },
+    "titleFont": { "type": "string", "description": "A font Snug has: default, condensed, medium, serif, monospace, casual, cursive, smallCaps (the phone's own), audiowide, oxanium, orbitron, michroma, tektur, rubik, rajdhani, chakraPetch, shareTechMono, nunito, comfortaa, caveat, pacifico, playfairDisplay, lora, bebasNeue, righteous, spaceGrotesk, pressStart2P (case and spaces don't matter); or any Google Fonts family by its name, like \"Roboto Slab\".", "examples": ["default", "serif", "chakraPetch", "Roboto Slab"] },
     "titleAlign": { "enum": ["start", "center", "end"] },
     "sectionStyle": {
       "description": "Overrides any widget setting for one section only: title style, spacing, and the widget-level settings below. Every field is optional; a missing or null field follows the widget.",

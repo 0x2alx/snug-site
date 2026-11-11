@@ -21,20 +21,21 @@
 
   <h2>What a theme changes</h2>
   <p>A theme sets the colours, the font (one font for all the text), the text size, how round the corners are and how thick the outlines are, across every screen of the app. It styles Snug's own screens; your widgets keep the look you give each of them in its editor.</p>
-  <p>Open the menu (top left) and tap <strong>App theme</strong>. Tap a theme to use it. <strong>Match the phone</strong> uses Daylight while your phone is in light mode.</p>
+  <p>Open the menu (top left) and tap <strong>App theme</strong>. Tap a theme to use it. <strong>Match the phone</strong> uses Daywalker while your phone is in light mode.</p>
 
   <h2>Built-in themes</h2>
   <table>
     <thead><tr><th>Theme</th><th>Look</th><th>Font</th></tr></thead>
     <tbody>
-      <tr><td>Graphite</td><td>The default. Charcoal with one blue accent.</td><td>The phone's own</td></tr>
-      <tr><td>Daylight</td><td>Light: off-white, white cards, blue accent.</td><td>The phone's own</td></tr>
-      <tr><td>Neon</td><td>Near-black with cyan and magenta.</td><td>Oxanium</td></tr>
-      <tr><td>Clumsy Clanker</td><td>Our signature, the same in all our apps: near-black purple, neon violet edges and accent, amber text.</td><td>Orbitron</td></tr>
-      <tr><td>Petty Officer</td><td>Military green with an amber accent, squared-off corners.</td><td>Michroma</td></tr>
-      <tr><td>High contrast</td><td>Black, white and yellow, larger text, thick outlines.</td><td>The phone's own</td></tr>
+      <tr><td>Clumsy Clanker</td><td>Our signature, the same in all our apps: near-black purple, neon violet edges and accent, amber text, magenta secondary text, slightly larger text.</td><td>Tektur, bold</td></tr>
+      <tr><td>Nightwalker</td><td>The default when your phone is in dark mode. Slate blue-grey with a pale aqua accent.</td><td>Rubik, bold</td></tr>
+      <tr><td>Daywalker</td><td>The default when your phone is in light mode. Warm off-white, white cards, a slate accent.</td><td>Rubik, bold</td></tr>
+      <tr><td>Petty Officer</td><td>Military green with an amber accent, squared-off corners.</td><td>Michroma, bold</td></tr>
+      <tr><td>High contrast</td><td>Black, white and yellow, larger text, thick outlines.</td><td>The phone's own, bold</td></tr>
+      <tr><td>Neon</td><td>Near-black with cyan and magenta.</td><td>Oxanium, bold</td></tr>
     </tbody>
   </table>
+  <p>The first time you open the app it picks Nightwalker or Daywalker to match your phone's dark or light mode. Graphite and Daylight, the defaults before, became Nightwalker and Daywalker: a backup or theme file that names them still works.</p>
 
   <h2>Make your own</h2>
   <ul>
@@ -93,7 +94,7 @@
       <tr><td><code>mutedText</code></td><td>colour</td><td>Secondary text, hints and icons.</td></tr>
       <tr><td><code>danger</code></td><td>colour</td><td>Warnings and errors.</td></tr>
       <tr><td><code>secondary</code></td><td>colour</td><td>Optional. Secondary buttons and selected chips, with <code>text</code> on them. Left out, the accent tinted into the cards. Also worked out again when a theme changes <code>accent</code>, <code>surface</code>, <code>background</code>, <code>text</code> or <code>dark</code> without naming it.</td></tr>
-      <tr><td><code>font</code></td><td>text</td><td>One font for all the text: <code>Phone default</code>, <code>Condensed</code>, <code>Serif</code>, <code>Mono</code>, <code>Audiowide</code>, <code>Oxanium</code>, <code>Orbitron</code>, <code>Michroma</code>, <code>Tektur</code>, <code>Rajdhani</code>, <code>Chakra Petch</code>, <code>Share Tech Mono</code>, <code>Nunito</code>, <code>Comfortaa</code>, <code>Caveat</code>, <code>Pacifico</code>, <code>Playfair Display</code>, <code>Lora</code>, <code>Bebas Neue</code>, <code>Righteous</code>, <code>Space Grotesk</code>, <code>Press Start 2P</code>, or any Google Fonts family by its name (like <code>Roboto Slab</code>), which Google Play services fetches on your phone (the phone's font until it arrives, or if it can't). Case and spaces don't matter for the built-in ones.</td></tr>
+      <tr><td><code>font</code></td><td>text</td><td>One font for all the text: <code>Phone default</code>, <code>Condensed</code>, <code>Serif</code>, <code>Mono</code>, <code>Audiowide</code>, <code>Oxanium</code>, <code>Orbitron</code>, <code>Michroma</code>, <code>Tektur</code>, <code>Rubik</code>, <code>Rajdhani</code>, <code>Chakra Petch</code>, <code>Share Tech Mono</code>, <code>Nunito</code>, <code>Comfortaa</code>, <code>Caveat</code>, <code>Pacifico</code>, <code>Playfair Display</code>, <code>Lora</code>, <code>Bebas Neue</code>, <code>Righteous</code>, <code>Space Grotesk</code>, <code>Press Start 2P</code>, or any Google Fonts family by its name (like <code>Roboto Slab</code>), which Google Play services fetches on your phone (the phone's font until it arrives, or if it can't). Case and spaces don't matter for the built-in ones.</td></tr>
       <tr><td><code>fontWeight</code></td><td>text</td><td>How heavy the text is: <code>Light</code>, <code>Regular</code>, <code>Medium</code> or <code>Bold</code> (or 300, 400, 500, 700). Headings are drawn one step heavier. Leave it out for Regular.</td></tr>
       <tr><td><code>textScalePct</code></td><td>number</td><td>Text size, 85 to 130 (percent). It multiplies your phone's own text size.</td></tr>
       <tr><td><code>cornerDp</code></td><td>number</td><td>Corner roundness, 0 (square) to 28.</td></tr>
@@ -107,7 +108,7 @@
   <h3>More shapes</h3>
   <p>Several themes at once, choosing which one to use by its name:</p>
 <pre><code>{"custom": [{"name": "Sunset", "accent": "#FF8A3D"}, {"name": "Forest", "accent": "#3DDC84"}], "selectedId": "Forest"}</code></pre>
-  <p>Just switch to a built-in theme (<code>graphite</code>, <code>daylight</code>, <code>neon</code>, <code>clumsy-clanker</code>, <code>petty-officer</code>, <code>high-contrast</code>):</p>
+  <p>Just switch to a built-in theme (<code>clumsy-clanker</code>, <code>nightwalker</code>, <code>daywalker</code>, <code>petty-officer</code>, <code>high-contrast</code>, <code>neon</code>):</p>
 <pre><code>{"theme": "clumsy-clanker"}</code></pre>
   <p>A small change to the theme you're using, here a red accent:</p>
 <pre><code>{"name": "Red accent", "accent": "#FF5252", "onAccent": "#1A0000"}</code></pre>
