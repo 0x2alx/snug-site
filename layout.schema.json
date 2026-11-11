@@ -28,7 +28,7 @@
       "description": "The look of the Snug app itself (its screens, not the widgets). See ai.html, The app theme.",
       "type": "object",
       "properties": {
-        "selectedId": { "type": "string", "description": "graphite, daylight, neon, clumsy-clanker, high-contrast, or the id of a custom theme." },
+        "selectedId": { "type": "string", "description": "graphite, daylight, neon, clumsy-clanker, petty-officer, high-contrast, or the id of a custom theme." },
         "matchPhone": { "type": "boolean" },
         "custom": { "type": "array", "items": { "$ref": "#/$defs/appTheme" } }
       }
