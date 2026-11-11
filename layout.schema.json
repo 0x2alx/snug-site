@@ -53,7 +53,7 @@
       "type": "string",
       "pattern": "^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$"
     },
-    "titleFont": { "enum": ["default", "condensed", "medium", "serif", "monospace", "casual", "cursive", "smallCaps", "audiowide", "oxanium", "orbitron", "michroma", "tektur", "rajdhani", "chakraPetch", "shareTechMono"] },
+    "titleFont": { "type": "string", "description": "A font Snug has: default, condensed, medium, serif, monospace, casual, cursive, smallCaps (the phone's own), audiowide, oxanium, orbitron, michroma, tektur, rajdhani, chakraPetch, shareTechMono, nunito, comfortaa, caveat, pacifico, playfairDisplay, lora, bebasNeue, righteous, spaceGrotesk, pressStart2P (case and spaces don't matter); or any Google Fonts family by its name, like \"Roboto Slab\".", "examples": ["default", "serif", "chakraPetch", "Roboto Slab"] },
     "titleAlign": { "enum": ["start", "center", "end"] },
     "sectionStyle": {
       "description": "Overrides any widget setting for one section only: title style, spacing, and the widget-level settings below. Every field is optional; a missing or null field follows the widget.",
