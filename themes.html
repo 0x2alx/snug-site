@@ -89,6 +89,7 @@
       <tr><td><code>text</code></td><td>colour</td><td>Main text.</td></tr>
       <tr><td><code>mutedText</code></td><td>colour</td><td>Secondary text, hints and icons.</td></tr>
       <tr><td><code>danger</code></td><td>colour</td><td>Warnings and errors.</td></tr>
+      <tr><td><code>secondary</code></td><td>colour</td><td>Optional. Secondary buttons and selected chips, with <code>text</code> on them. Left out, the accent tinted into the cards.</td></tr>
       <tr><td><code>font</code></td><td>text</td><td>One font for all the text: <code>Phone default</code>, <code>Condensed</code>, <code>Serif</code>, <code>Mono</code>, <code>Audiowide</code>, <code>Oxanium</code>, <code>Orbitron</code>, <code>Michroma</code>, <code>Tektur</code>, <code>Rajdhani</code>, <code>Chakra Petch</code>, <code>Share Tech Mono</code>. Case and spaces don't matter.</td></tr>
       <tr><td><code>textScalePct</code></td><td>number</td><td>Text size, 85 to 130 (percent). It multiplies your phone's own text size.</td></tr>
       <tr><td><code>cornerDp</code></td><td>number</td><td>Corner roundness, 0 (square) to 28.</td></tr>
@@ -96,7 +97,7 @@
     </tbody>
   </table>
   <p><strong>Colours</strong> are <code>"#RRGGBB"</code>, like <code>"#FF8A3D"</code>. Numbers outside their range are brought into it.</p>
-  <p><strong>Readable text:</strong> aim for a contrast of at least 4.5:1 for <code>text</code> on <code>background</code> and on <code>surface</code>, and for <code>onAccent</code> on <code>accent</code>; at least 3:1 for <code>mutedText</code> on <code>surface</code>. A theme that misses this is still imported, with a note saying what is hard to read, and the editor can fix it.</p>
+  <p><strong>Readable text:</strong> aim for a contrast of at least 4.5:1 for <code>text</code> on <code>background</code> and on <code>surface</code>, for <code>onAccent</code> on <code>accent</code>, and for <code>text</code> on <code>secondary</code> when you set it; at least 3:1 for <code>mutedText</code> on <code>surface</code>. A theme that misses this is still imported, with a note saying what is hard to read, and the editor can fix it.</p>
   <p><strong>What the importer forgives:</strong> the JSON can be inside a code block or among other text. A value it can't read (a colour written as "red", a font it doesn't have) keeps the previous one, with a note, and the rest still imports. <code>headingFont</code> and <code>bodyFont</code> from older versions are read as <code>font</code>.</p>
 
   <h3>More shapes</h3>
