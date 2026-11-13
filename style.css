@@ -1,12 +1,13 @@
-/* Snug site. Dark on purpose, with the logo's candy colours as accents. System fonts only, so the pages load nothing from third parties. */
+/* Snug site. Dark on purpose: the app's Nightwalker theme (slate with a pale aqua accent). System fonts only, so the pages load nothing from third parties. */
 :root {
-  --void: #120B2E;
-  --deep: #1D1442;
-  --line: #31266A;
-  --accent: #FFB84D;
-  --link: #8FD8FF;
-  --ink: #F3EEFF;
-  --muted: #ABA2D4;
+  --void: #1C2529;
+  --deep: #253136;
+  --line: #3B4B52;
+  --accent: #CDFFFB;
+  --on-accent: #12302E;
+  --link: #CDFFFB;
+  --ink: #EEF8F7;
+  --muted: #A3B6B8;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -33,7 +34,7 @@ a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outli
 ul { padding-left: 1.2rem; }
 li + li { margin-top: .35rem; }
 .free { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .02em; padding: .1em .5em; border-radius: 6px;
-  background: var(--accent); color: var(--void); vertical-align: .15em; }
+  background: var(--accent); color: var(--on-accent); vertical-align: .15em; }
 
 /* FAQ */
 details { border-top: 1px solid var(--line); padding: .9rem 0; }
